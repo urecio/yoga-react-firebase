@@ -1,0 +1,21 @@
+body {
+  overflow: hidden;
+}
+
+button:focus, textarea:focus, input:focus{
+    outline: none;
+}
+
+.App {
+  text-align: center;
+}
+
+.btn-clear {
+  background: none;
+  border: none;
+}
+
+.ashanas-container, .sequence-container {
+  overflow: auto;
+  height: 100vh;
+}

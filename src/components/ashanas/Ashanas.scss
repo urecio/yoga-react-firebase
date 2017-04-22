@@ -1,0 +1,32 @@
+.ashana-item {
+  position: relative;
+  border: none;
+  img {
+    position: relative;
+    z-index: 1;
+    height: 100px;
+  }
+  .description {
+    position: relative;
+    top: -24px;
+    padding: 27px 0 20px 0px;
+    background: #ccc;
+    color: white;
+    width: 150px;
+    margin: auto;
+  }
+  .add-ashana-container {
+    position: absolute;
+    top: 6px;
+    left: 180px;
+    z-index: 1;
+    padding: 0;
+    font-size: 22px;
+    color: #aaa;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+      color: #bbb;
+    }
+  }
+}
