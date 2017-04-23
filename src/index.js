@@ -1,23 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import createBrowserHistory from 'history/createBrowserHistory';
 // components
-import App from './components/app/App';
+import Builder from './components/builder/Builder';
+import Sequences from './components/sequence/SequenceList';
 // reducers
 import reducers from './reducers';
-// browser history
-const newHistory = createBrowserHistory();
+// styles
+import './common/styles/index.scss';
 
 const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={newHistory}>
+    <Router>
       <div>
-        <Route path="/" component={App} />
+        <ul>
+          <li><Link to="/">Builder</Link></li>
+          <li><Link to="/sequences">Sequences</Link></li>
+        </ul>
+        <hr />
+        <Route exact path="/" component={Builder} />
+        <Route path="/sequences" component={Sequences} />
       </div>
     </Router>
   </Provider>,

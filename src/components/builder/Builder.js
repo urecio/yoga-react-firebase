@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Link } from 'react-router';
+import './Builder.scss';
 import Ashanas from '../ashanas/Ashanas';
 import Sequence from '../sequence/Sequence';
 
-export default class App extends Component {
+export default class Builder extends Component {
   render() {
     return (
-      <div className="App container-fluid">
+      <div className="builder container-fluid">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-3">
             <Ashanas />
           </div>
-          <div className="col-md-7">
+          <div className="col-md-8">
             <Sequence />
           </div>
         </div>

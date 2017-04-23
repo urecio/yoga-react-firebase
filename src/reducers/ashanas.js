@@ -7,6 +7,10 @@ function getAshanas() {
     new Ashana({ name: 'Mountain', sanskritName: 'Tadasana', imageUrl: 'ashanas/png/mountain.png' }),
     new Ashana({ name: 'Upward salute', sanskritName: 'Urdhva Hastasana', imageUrl: 'ashanas/png/upward-salute.png' }),
     new Ashana({ name: 'Standing forward bend', sanskritName: 'Uttanasana', imageUrl: 'ashanas/png/standing-forward-bend.png' }),
+    new Ashana({ name: 'Half standing forward fold', sanskritName: 'Ardha Uttanasana', imageUrl: 'ashanas/png/half-standing-forward-fold.png' }),
+    new Ashana({ name: 'Four-limbed staff', sanskritName: 'Chaturanga Dandasana', imageUrl: 'ashanas/png/four-limbed-staff.png' }),
+    new Ashana({ name: 'Upward-facing dog', sanskritName: 'Urdhva Mukha Svanasana', imageUrl: 'ashanas/png/upward-facing-dog.png' }),
+    new Ashana({ name: 'Downward-facing dog', sanskritName: 'Adho Mukha Svanasana', imageUrl: 'ashanas/png/downward-facing-dog.png' }),
   ];
 }
 

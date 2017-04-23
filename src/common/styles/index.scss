@@ -1,0 +1,47 @@
+@import '../../common/styles/colors';
+
+body {
+  overflow: hidden;
+}
+
+button:focus, textarea:focus, input:focus{
+    outline: none;
+}
+
+.btn-clear {
+  background: none;
+  border: none;
+}
+
+.btn-primary-color {
+  color: $color_primary;
+  &:hover {
+    color: darken($color_primary, 10%);
+  }
+}
+
+.btn-big {
+  font-size: 40px;
+}
+
+.vcenter {
+  vertical-align: middle;
+}
+
+.primary-color {
+  color: $color_primary;
+}
+
+.ashanas-container, .sequence-container {
+  overflow: auto;
+  height: 100vh;
+}
+
+.input-no-border {
+  color: #bbb;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px 0;
+  border: none;
+  text-align: center;
+}
