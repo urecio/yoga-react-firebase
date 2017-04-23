@@ -32,9 +32,10 @@ button:focus, textarea:focus, input:focus{
   color: $color_primary;
 }
 
-.ashanas-container, .sequence-container {
+.ashanas-container, .sequence-container, .sequence-list-container {
   overflow: auto;
   height: 100vh;
+  padding-bottom: 60px;
 }
 
 .input-no-border {
@@ -44,4 +45,8 @@ button:focus, textarea:focus, input:focus{
   padding: 10px 0;
   border: none;
   text-align: center;
+}
+
+.list-group-item {
+  border: none;
 }
