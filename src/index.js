@@ -6,30 +6,37 @@ import {
   Link
 } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 // components
 import Builder from './components/builder/Builder';
 import Sequences from './components/sequence/SequenceList';
+import App from './components/App';
 // reducers
 import reducers from './reducers';
 // styles
 import './common/styles/index.scss';
 
-const store = createStore(reducers);
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk)
+);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <div>
-        <ul>
-          <li><Link to="/">Builder</Link></li>
-          <li><Link to="/sequences">Sequences</Link></li>
-        </ul>
-        <hr />
-        <Route exact path="/" component={Builder} />
-        <Route path="/sequences" component={Sequences} />
-      </div>
-    </Router>
+    <App>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Builder</Link></li>
+            <li><Link to="/sequences">Sequences</Link></li>
+          </ul>
+          <hr />
+            <Route exact path="/" component={Builder} />
+            <Route path="/sequences" component={Sequences} />
+        </div>
+      </Router>
+    </App>
   </Provider>,
   document.getElementById('root'),
 );

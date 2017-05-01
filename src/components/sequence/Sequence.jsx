@@ -47,6 +47,18 @@ class Sequence extends Component {
               {this.state.errorMessage}
             </div>
           }
+          {
+            this.state.errorSaving &&
+            <div className="alert alert-danger">
+              Error saving
+            </div>
+          }
+          {
+            !this.state.errorMessage && this.props.saved &&
+            <div className="alert alert-success">
+              Saved!
+            </div>
+          }
           </div>
           <div className="row ashanas-list-container">
             <AshanaList
@@ -61,6 +73,8 @@ class Sequence extends Component {
 
 const mapStateToProps = state => ({
   sequence: state.sequence.sequenceBuilding,
+  saved: state.sequence.saved,
+  errorSaving: state.sequence.errorSaving,
 });
 
 const mapDispatchToState = {

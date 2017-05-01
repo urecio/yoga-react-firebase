@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AshanaList from '../ashanas/AshanaList';
@@ -8,23 +9,24 @@ class SequenceList extends Component {
     this.props.getSequences();
   }
   render() {
+    const sequences = _.values(this.props.sequences);
     return (
       <div className="sequence-list-container">
         <ul>
           {
-            this.props.sequences.map((sequence, index) => (
-              <li key={`${sequence.name} ${sequence.index}`} className="list-group-item">
+            sequences.map(sequence => (
+              <li key={`${sequence.name}`} className="list-group-item">
                 <p className="sequence-name">{sequence.name}</p>
                 <AshanaList
                   inline
                   showDescription={false}
-                  ashanas={sequence.sequence}
+                  ashanas={sequence.ashanas}
                 />
               </li>
             ))
           }
           {
-            this.props.sequences.length === 0 &&
+            sequences.length === 0 &&
             <li className="list-group-item">No sequences yet!</li>
           }
         </ul>

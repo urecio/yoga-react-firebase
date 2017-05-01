@@ -1,23 +1,29 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class AshanaList extends Component {
+class AshanaList extends Component {
   static propTypes = {
-    ashanas: PropTypes.arrayOf(PropTypes.object).isRequired,
+    ashanasFullList: PropTypes.object.isRequired,
     onAddAshana: PropTypes.func,
     showDescription: PropTypes.bool,
     inline: PropTypes.bool,
   }
   render() {
+    // TODO: get ashana data from ashanasFullList
     const inline = this.props.inline ? 'list-inline' : '';
+    const ashanasToShow =
+    _.values(this.props.ashanas ? this.props.ashanas : this.props.ashanasFullList);
+
     return (
       <ul className={`ashana-list list-group ${inline}`}>
         {
-          this.props.ashanas.length > 0 ?
-            this.props.ashanas.map(
+          ashanasToShow.length > 0 ?
+            ashanasToShow.map(
               (ashana, index) =>
                 <li className="list-group-item ashana-item"
-                  key={`${ashana.sanskritName}${index}`}>
+                  key={`${ashana.ashanaId}${index}`}>
                   <div>
                     <img src={ashana.imageUrl} alt="" />
                     {
@@ -47,3 +53,11 @@ export default class AshanaList extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    ashanasFullList: state.ashana.ashanasFullList,
+  };
+}
+
+export default connect(mapStateToProps)(AshanaList);
