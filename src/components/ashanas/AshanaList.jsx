@@ -13,9 +13,12 @@ class AshanaList extends Component {
   render() {
     // TODO: get ashana data from ashanasFullList
     const inline = this.props.inline ? 'list-inline' : '';
-    const ashanasToShow =
+    let ashanasToShow =
     _.values(this.props.ashanas ? this.props.ashanas : this.props.ashanasFullList);
 
+    ashanasToShow = ashanasToShow.map(
+      ashana => _.find(this.props.ashanasFullList, { ashanaId: ashana.ashanaId })
+    );
     return (
       <ul className={`ashana-list list-group ${inline}`}>
         {
@@ -26,6 +29,7 @@ class AshanaList extends Component {
                   key={`${ashana.ashanaId}${index}`}>
                   <div>
                     <img src={ashana.imageUrl} alt="" />
+                    {ashana.name}
                     {
                       this.props.showDescription &&
                       <div className="description">
